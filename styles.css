@@ -1,0 +1,76 @@
+/* Simple responsive calculator styles */
+:root{
+  --bg:#0f1724;
+  --panel:#0b1220;
+  --accent:#7c3aed;
+  --button:#1f2937;
+  --text:#e6eef8;
+  --muted:#9aa6b2;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#071028,#0b1220 60%);
+  color:var(--text);
+  padding:20px;
+}
+
+.calculator{
+  width:340px;
+  max-width:100%;
+  background:var(--panel);
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 10px 30px rgba(2,6,23,0.6);
+}
+
+.display{
+  height:72px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:12px;
+  font-size:2rem;
+  color:var(--text);
+  margin-bottom:12px;
+  overflow:hidden;
+  word-break:break-all;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.btn{
+  background:var(--button);
+  border:0;
+  border-radius:10px;
+  padding:18px;
+  color:var(--text);
+  font-size:1.1rem;
+  cursor:pointer;
+  transition:transform .08s ease, background .08s ease;
+  box-shadow:inset 0 -4px rgba(0,0,0,0.2);
+}
+
+.btn:active{transform:translateY(2px) scale(.998)}
+
+.btn.op{background:rgba(124,58,237,0.12); color:var(--accent); font-weight:600}
+.btn.action{background:transparent; color:var(--muted); font-weight:600}
+.btn.equals{grid-column:4; background:var(--accent); color:white; font-weight:700}
+.btn.wide{grid-column:1/3; padding-left:26px; text-align:left}
+
+@media (max-width:380px){
+  .display{height:64px; font-size:1.6rem}
+  .btn{padding:14px; font-size:1rem}
+}
